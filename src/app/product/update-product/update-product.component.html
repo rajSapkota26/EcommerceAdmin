@@ -1,0 +1,116 @@
+<mat-card>
+    <h1 class="text-center">Update product </h1>
+    {{product | json}}
+    <mat-card-content>
+        <div class="row">
+            <div class="col-md-10 offset-md-1">
+                <form (ngSubmit)="updateProduct()">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <mat-form-field appearance="outline" class="full-width">
+                                <mat-label>product name</mat-label>
+                                <input matInput required #input name="title" [(ngModel)]="product.name" type="text"
+                                    placeholder="product name">
+                            </mat-form-field>
+                        </div>
+                        <div class="col-md-6">
+                            <mat-form-field appearance="outline" class="full-width">
+                                <mat-label>product price</mat-label>
+                                <input matInput required #input name="price" [(ngModel)]="product.price" type="text"
+                                    placeholder="product price">
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <mat-form-field appearance="outline" class="full-width">
+                                <mat-label>product color</mat-label>
+                                <input matInput required #input name="color" [(ngModel)]="product.color" type="text"
+                                    placeholder="product color">
+                            </mat-form-field>
+                        </div>
+                        <div class="col-md-6">
+                            <mat-form-field appearance="outline" class="full-width">
+                                <mat-label>product brand</mat-label>
+                                <input matInput required #input name="brand" [(ngModel)]="product.brand" type="text"
+                                    placeholder="product brand">
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class=" mt1 mb1">
+                        <div class="mb1">
+                            <h5>product Description</h5>
+                        </div>
+                        <ckeditor [editor]="Editor" data="{{product.description}}" [(ngModel)]="product.description"
+                            name="description">
+                        </ckeditor>
+                    </div>
+                    <div class=" mt1 mb1">
+                        <div class="mb1">
+                            <h5>product specification</h5>
+                        </div>
+                        <ckeditor [editor]="Editor" data="{{product.specification}}" [(ngModel)]="product.specification"
+                            name="specification">
+                        </ckeditor>
+                    </div>
+                    <div class=" mt1 mb1">
+                        <div class="mb1">
+                            <h5>product delivery details</h5>
+                        </div>
+                        <ckeditor [editor]="Editor" data="{{product.delivery}}" [(ngModel)]="product.delivery"
+                            name="delivery">
+                        </ckeditor>
+                    </div>
+                    <div class=" mt1 mb1">
+                        <div class="mb1">
+                            <h5>product service details</h5>
+                        </div>
+                        <ckeditor [editor]="Editor" data="{{product.sewa}}" [(ngModel)]="product.sewa" name="sewa">
+                        </ckeditor>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <mat-form-field appearance="outline" class="full-width">
+                                <mat-label>product weight</mat-label>
+                                <input matInput required #input name="weight" [(ngModel)]="product.weight" type="text"
+                                    placeholder="product weight">
+                            </mat-form-field>
+                        </div>
+                        <div class="col-md-6">
+                            <mat-form-field appearance="outline" class="full-width">
+                                <mat-label>product unit</mat-label>
+                                <input matInput required #input name="unit" [(ngModel)]="product.unit" type="text"
+                                    placeholder="product unit">
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <mat-form-field appearance="outline" class="full-width">
+                                <mat-label>product discount</mat-label>
+                                <input matInput required #input name="discount" [(ngModel)]="product.discount"
+                                    type="text" placeholder="product discount">
+                            </mat-form-field>
+                        </div>
+                        <div class="col-md-6">
+                            <mat-form-field appearance="outline" class="full-width">
+                                <mat-label>product Stock</mat-label>
+                                <input matInput required #input name="stock" [(ngModel)]="product.stock" type="text"
+                                    placeholder="product Stock">
+                            </mat-form-field>
+                        </div>
+                    </div>
+
+                    <div class="full-width mb1">
+                        <mat-label>product Image</mat-label>
+                    </div>
+                    <input name="file" type="file" (change)="onFileChanged($event)">
+
+                    <div class="container text-center mt2">
+                        <button mat-raised-button color="accent" type="submit" class="btn">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </mat-card-content>
+</mat-card>

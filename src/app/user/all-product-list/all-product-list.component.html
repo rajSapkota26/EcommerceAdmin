@@ -1,0 +1,19 @@
+<div class="bootstrap-wrapper">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-2 mt1 " *ngFor="let p of product">
+                <mat-card class="fixedH" [routerLink]="'/user/productDetails/'+p.id">
+                    <img src="{{p.image}}" alt="" class="pImage ">
+                    <div class="mb1">
+                        <p> <span>{{p.name}}</span></p>
+                        <p class="txt"> <span>Rs:{{p.price}}</span></p>
+                        <p class="txt" *ngIf="p.discount>0"> <span>-Rs:{{p.discount}}</span></p>
+                    </div>
+                </mat-card>
+            </div>
+        </div>
+
+
+    </div>
+
+</div>

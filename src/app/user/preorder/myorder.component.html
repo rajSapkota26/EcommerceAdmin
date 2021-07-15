@@ -1,0 +1,123 @@
+<p>myorder works!</p>
+{{pId | json}}{{userprofile | json}}
+<div class="bootstrap-wrapper">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-6 ml1">
+                <mat-card *ngIf="profile ==null">
+                    <form (ngSubmit)=" savePP()">
+                        <mat-form-field appearance="outline" class="full-width">
+                            <mat-label>Your email</mat-label>
+                            <input matInput required #input name="email" [(ngModel)]="userprofile.email" type="email"
+                                placeholder="Your email">
+                        </mat-form-field>
+                        <mat-form-field appearance="outline" class="full-width">
+                            <mat-label>Your fullName</mat-label>
+                            <input matInput required #input name="fullName" [(ngModel)]="userprofile.fullName"
+                                type="text" placeholder="Your fullName">
+                        </mat-form-field>
+                        <mat-form-field appearance="outline" class="full-width">
+                            <mat-label>Your phone</mat-label>
+                            <input matInput required #input name="phone" type="text" [(ngModel)]="userprofile.phone"
+                                placeholder="Your phone">
+                        </mat-form-field>
+                        <mat-form-field appearance="outline" class="full-width">
+                            <mat-label>Your region</mat-label>
+                            <input matInput required #input name="region" [(ngModel)]="userprofile.region" type="text"
+                                placeholder="Your region">
+                        </mat-form-field>
+                        <mat-form-field appearance="outline" class="full-width">
+                            <mat-label>Your city</mat-label>
+                            <input matInput required #input [(ngModel)]="userprofile.city" name="city" type="text"
+                                placeholder="Your city">
+                        </mat-form-field>
+                        <mat-form-field appearance="outline" class="full-width">
+                            <mat-label>Your area</mat-label>
+                            <input matInput required #input name="area" [(ngModel)]="userprofile.area" type="text"
+                                placeholder="Your area">
+                        </mat-form-field>
+
+                        <div class="container text-center mt2">
+                            <button mat-raised-button color="accent" type="submit" class="btn">Submit</button>
+                        </div>
+                    </form>
+
+                </mat-card>
+                <mat-divider></mat-divider>
+                <mat-card>
+                    <div class="row text-center">
+                        <div class="col-md-3">
+                            <img src="{{product.image}}" alt="image" class="pImage ">
+                        </div>
+                        <div class="col-md-4">
+                            <p>{{product.name}}</p>
+                            <p>brand:{{product.brand}}</p>
+                        </div>
+                        <div class="col-md-3">
+                            <p>Rs:{{product.price}}</p>
+                            <p>off Rs:{{product.discount}}</p>
+                        </div>
+                        <div class="col-md-2">
+                            <mat-label> Qty:{{MyCart.quantities}}</mat-label>
+                            <input matInput required #input name="quantities" [(ngModel)]="MyCart.quantities" min="1"
+                                type="number" placeholder="{{MyCart.quantities}}">
+                        </div>
+                    </div>
+                </mat-card>
+            </div>
+            <div class="col-md-4 ml2">
+                <mat-card>
+                    <button mat-raised-button (click)="proceedPay()" color="accent" class="btn1">Proceed To pay</button>
+                    <mat-card-content class="mb1 mt1">
+                        <div *ngIf="profile !=null">
+                            <h3>Shipping & Billing</h3>
+                            <mat-divider></mat-divider> <br>
+                            <p>
+                                <mat-icon class="ic">location_on</mat-icon> <span class="ml2">{{profile.city}}</span>
+                            </p>
+                            <p class="ml2">{{profile.address}}</p>
+                            <p>
+                                <mat-icon class="ic">text_snippet</mat-icon> <span class="ml2">Bill to the same
+                                    address</span>
+                            </p>
+                            <p>
+                                <mat-icon class="ic">phone</mat-icon> <span class="ml2">{{profile.phone}}</span>
+                            </p>
+                            <p>
+                                <mat-icon class="ic">email</mat-icon> <span class="ml2">{{profile.email}}</span>
+                            </p>
+                        </div>
+                        <mat-divider></mat-divider>
+                        <h3 class="p1">Order Summery</h3>
+                        <mat-divider></mat-divider>
+                        <div class="row p2 ">
+                            <div class="col-md-9">
+                                <p>SubTotal <span>({{MyCart.quantities}} Items)</span></p>
+                            </div>
+                            <div class="col-md-3">Rs {{totaPrice}}</div>
+                        </div>
+                        <mat-divider></mat-divider>
+                        <div class="row  p2">
+                            <div class="col-md-9 ">Shipping fee</div>
+                            <div class="col-md-3">Rs {{shippingFee}}</div>
+                        </div>
+                        <mat-divider></mat-divider>
+                        <div class="row p1">
+                            <div class="col-md-9"> <br> Total</div>
+                            <div class="col-md-3 tot">
+                                <p>Rs </p>
+                                <p>(Vat include)</p>
+                            </div>
+                        </div>
+                    </mat-card-content>
+                    <button mat-raised-button (click)="proceedPay()" color="accent" class="btn1">Proceed To pay</button>
+                </mat-card>
+            </div>
+        </div>
+    </div>
+
+</div>
+<!-- {{((product.price * MyCart.quantities) -
+    (product.discount * MyCart.quantities)+(product.category.deliveryCharge +
+    product.category.tax))}} -->

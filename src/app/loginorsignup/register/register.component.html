@@ -1,0 +1,34 @@
+<div class="bootstrap-wrapper">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <mat-card class="mt2">
+                    <div class="container text-center">
+                        <img class="img" src="../../../assets/logo.jpg" alt="">
+                    </div>
+                    <h1 class="text-center">Register Here</h1>
+
+                    <form>
+                        <!-- user name field  -->
+                        <mat-form-field appearance="outline" class="full-width">
+                            <mat-label>Email or phone</mat-label>
+                            <input name="userName" type="text" required matInput placeholder="Email or phone">
+                            <mat-hint>Email or phone should be unique</mat-hint>
+                        </mat-form-field>
+                        <!-- password field  -->
+                        <mat-form-field appearance="outline" class="full-width">
+                            <mat-label>Password</mat-label>
+                            <input required name="password" type="password" matInput placeholder="Password">
+                        </mat-form-field>
+                        <div class="container text-center">
+                            <button type="submit" mat-raised-button color="primary" class="btn">Sign up</button>
+                            <button mat-raised-button color="accent" type="reset" class="btn">Clear</button>
+                        </div>
+                    </form>
+                </mat-card>
+            </div>
+
+        </div>
+
+    </div>
+</div>

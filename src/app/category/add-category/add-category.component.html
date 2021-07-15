@@ -1,0 +1,41 @@
+<mat-card>
+    <h1 class="text-center">Add new Category</h1>
+    <mat-card-content>
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <form (ngSubmit)=" addCategory()">
+
+                    <mat-form-field appearance="outline" class="full-width">
+                        <mat-label>category name</mat-label>
+                        <input matInput required #input name="name" [(ngModel)]="categories.name" type="text"
+                            placeholder="category name">
+                    </mat-form-field>
+                    <mat-form-field appearance="outline" class="full-width">
+                        <mat-label>tax for product related to this category</mat-label>
+                        <input matInput required #input name="tax" [(ngModel)]="categories.tax" type="text"
+                            placeholder="tax for product  related to this category">
+                    </mat-form-field>
+                    <mat-form-field appearance="outline" class="full-width">
+                        <mat-label>deliveryCharge for product related to this category</mat-label>
+                        <input matInput required #input name="deliveryCharge" [(ngModel)]="categories.deliveryCharge"
+                            type="text" placeholder="deliveryCharge for product  related to this category">
+                    </mat-form-field>
+                    <mat-form-field appearance="outline" class="full-width">
+                        <mat-label>Description</mat-label>
+                        <textarea required name="description" matInput rows="15" #input
+                            [(ngModel)]="categories.description" placeholder="category description"></textarea>
+                    </mat-form-field>
+
+                    <div class="full-width mb2">
+                        <mat-label>category Image</mat-label>
+                    </div>
+                    <input name="file" type="file" (change)="onFileChanged($event)">
+
+                    <div class="container text-center mt2">
+                        <button mat-raised-button color="accent" type="submit" class="btn">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </mat-card-content>
+</mat-card>

@@ -1,0 +1,43 @@
+<div class="bootstrap-wrapper">
+    <mat-card>
+        <mat-list subheader>
+            <h1 class="text-center" color="accent">All Categories</h1>
+            <div class="row mb1 mt1" *ngFor="let c of categories">
+                <div class="col-md-2 text-center mt2">
+                    <mat-icon mat-list-icon class="text-center mr2 mb2">
+                        <img class="img m" *ngIf="c.image" src="{{c.image}}" alt="">
+                        <img class="img m" *ngIf="!c.image" src="../../../assets/cat.png" alt="">
+                    </mat-icon>
+                </div>
+                <div class="col-md-7 m">
+                    <div class="m">
+                        <h2>{{ c.name }}</h2>
+                        <h5>{{ c.description }}</h5>
+                        <h5>delivery charge</h5>
+                        <h5>tax:</h5>
+                        <h5></h5>
+                    </div>
+                </div>
+                <div class="col-md-2 text-center m">
+                    <button mat-raised-button color="primary" class="btn m"
+                        [routerLink]="'/admin/updateCategory/'+c.id">Update</button>
+                    <button mat-raised-button (click)="delete(c.id)" color="accent" class="btn ml2 m">Delete</button>
+                </div>
+                <div class="container ml2 mt2">
+                    <button mat-raised-button color="primary" class="btn"
+                        [routerLink]="'/admin/showProducts/'+c.id+'/'+c.name">See
+                        Products</button>
+                </div>
+                <mat-divider></mat-divider>
+            </div>
+
+
+        </mat-list>
+        <div class="container text-center mt2">
+            <button mat-raised-button color="accent" type="reset" class="btn" routerLink="/admin/addCategory">Add new
+                Category</button>
+        </div>
+
+
+    </mat-card>
+</div>

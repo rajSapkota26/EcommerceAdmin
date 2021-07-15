@@ -1,0 +1,61 @@
+<div class="bootstrap-wrapper">
+    <div class="container-fluid">
+        <div class="row mt2">
+            <div class="col-md-5 ml1">
+                <mat-card>
+                    <mat-card-header>Choose Payment Method</mat-card-header>
+                    <div class="row mt2">
+                        <div class="col-md-4 text-center">
+                            <mat-card>
+                                <img class="welcome" src="../../../assets/esewa.png" alt="">
+                                <h3>Esewa</h3>
+                            </mat-card>
+                        </div>
+                        <div class="col-md-4 text-center">
+                            <mat-card>
+                                <img class="welcome" src="../../../assets/crd.jpg" alt="">
+                                <h3>Credit card</h3>
+                            </mat-card>
+                        </div>
+                        <div class="col-md-4 text-center">
+                            <mat-card>
+                                <img class="welcome" src="../../../assets/cash.jpg" alt="">
+                                <h3>Cash on delivery</h3>
+                            </mat-card>
+                        </div>
+                    </div>
+                </mat-card>
+            </div>
+            <div class="col-md-5 ml2">
+                <mat-card>
+                    <mat-card-content class="mb1 mt1">
+                        <h3 class="p1">Order Summery</h3>
+                        <mat-divider></mat-divider>
+                        <div class="row p2 ">
+                            <div class="col-md-9">
+                                <p>SubTotal <span>({{PreOrders.quantities}} Items)</span></p>
+                            </div>
+                            <div class="col-md-3">Rs: {{totalPrice}}</div>
+                        </div>
+                        <mat-divider></mat-divider>
+                        <div class="row  p2">
+                            <div class="col-md-9 ">Shipping fee</div>
+                            <div class="col-md-3">Rs {{shippingFee}}</div>
+                        </div>
+                        <mat-divider></mat-divider>
+                        <div class="row p1">
+                            <div class="col-md-9"> <br> Total</div>
+                            <div class="col-md-3 tot">
+                                <p>Rs {{totalPrice+shippingFee}}</p>
+                                <p>(Vat include)</p>
+                            </div>
+                        </div>
+                    </mat-card-content>
+                    <button mat-raised-button color="accent" class="btn1" (click)="sendEsewaTransaction()">Complete the
+                        transaction</button>
+                </mat-card>
+            </div>
+        </div>
+    </div>
+
+</div>

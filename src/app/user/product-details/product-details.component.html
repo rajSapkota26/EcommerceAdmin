@@ -1,0 +1,71 @@
+<div class="bootstrap-wrapper">
+    <div class="container-fluid">
+        <mat-card>
+            <div class="row">
+                <div class="col-md-4 mt1 ">
+                    <mat-card class="fixedH">
+                        <img src="{{product.image}}" alt="" class="pImage ">
+                    </mat-card>
+                </div>
+                <div class="col-md-6 ml1">
+                    <mat-card-header>
+                        <h3> <span>{{product.name}}</span></h3>
+
+                    </mat-card-header>
+                    <mat-card-content>
+                        <mat-divider></mat-divider>
+                        <h2 class="txt"> <span>Rs:{{product.price}}</span></h2>
+                        <p *ngIf="product.discount>0"> <span>-Rs:{{product.discount}}</span></p>
+                        <mat-divider></mat-divider>
+                        <p class="p2">Avilable Color: <span> {{product.color}}</span></p>
+                    </mat-card-content>
+                    <mat-divider></mat-divider>
+                    <div class=" p2">
+                        Quantity <input type="number" width="10px" class="p1" [(ngModel)]="quantities" required
+                            name="quantities">
+                    </div>
+                    <mat-divider></mat-divider>
+                    <div class="mb2 mt2 p2">
+                        <button mat-raised-button color="primary" (click)="AddtoCart(product)" class="btn m mr2">Add
+                            to cart</button>
+
+                    </div>
+
+                </div>
+            </div>
+        </mat-card>
+        <mat-card class="mt2 mb2">
+            <h2>More About Product</h2>
+            <div class=" row">
+                <div class="col-md-6">
+                    <h3 class="p1"> Description : <span [innerHTML]="product.description "></span></h3>
+                </div>
+                <div class="col-md-6">
+                    <h3 class="p1"> Delivery : <span [innerHTML]="product.delivery"></span></h3>
+                </div>
+            </div>
+            <mat-divider></mat-divider>
+            <div class=" row">
+                <div class="col-md-6">
+                    <h3 class="p1"> Specification : <span [innerHTML]="product.specification "></span></h3>
+                </div>
+                <div class="col-md-6">
+                    <h3 class="p1"> Service : <span [innerHTML]="product.sewa"></span></h3>
+                </div>
+            </div>
+            <mat-divider></mat-divider>
+            <div class="row">
+                <div class="col-md-6">
+                    <h3 class="p1">Brand: <span>{{product.brand}}</span></h3>
+                </div>
+                <div class="col-md-6">
+                    <h5> <span>Average Rating : </span> {{ product.rating }}</h5>
+                </div>
+            </div>
+
+
+        </mat-card>
+
+    </div>
+
+</div>

@@ -1,0 +1,41 @@
+<div class="bootstrap-wrapper">
+    <div class="container-fluid">
+        <mat-card>
+            <div class="row mb1" *ngFor="let p of preorders ">
+                <div class="col-md-3">
+                    <mat-icon mat-list-icon class="text-center mr2 mb2">
+                        <img class="img m" *ngIf="p.image" src="{{p.image}}" alt="">
+                        <img class="img m" *ngIf="!p.image" src="../../../assets/cat.png" alt="">
+                    </mat-icon>
+                </div>
+                <div class="col-md-6 mt1">
+
+                    <p mat-raised-button class="btn">OrderId: <span class="mr2">{{p.id}}</span>
+                        Quantity:<span class="mr2">{{p.quantities}}</span> Price: <span>{{p.price}}</span>
+                    </p>
+                    <h3 mat-raised-button class="btn">Product: <span>{{p.productName}}</span> </h3>
+                    <h3 mat-raised-button class="btn" *ngIf="p.paymentAmount"> Payment Amount:
+                        <span>{{p.paymentAmount}}</span>
+                    </h3>
+                    <p mat-raised-button class="btn"></p>
+                    <h5 mat-raised-button class="btn mr1 ml1">Order date: <span>{{p.date}}</span> </h5>
+                    <h5 mat-raised-button class="btn mr1 ml1" *ngIf="p.paymentDate">Payment date:
+                        <span>{{p.paymentDate}}</span>
+                    </h5>
+
+
+                    <a mat-raised-button class="btn mt1">Status: <span>{{p.status}}</span> </a>
+                    <a mat-raised-button color="accent" class="btn mt1" *ngIf="p.paymentStatus">Payment Status:
+                        <span>{{p.paymentStatus}}</span> </a>
+
+                </div>
+
+                <div class="col-md-3 mt2">
+                    <button mat-raised-button color="primary" class="btn m mr2" *ngIf="p.paymentStatus"
+                        (click)="updateOrder(p)">Update</button>
+                </div>
+                <mat-divider></mat-divider>
+            </div>
+        </mat-card>
+    </div>
+</div>

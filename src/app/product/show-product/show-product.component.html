@@ -1,0 +1,49 @@
+<div class="bootstrap-wrapper">
+    <mat-card>
+        <mat-list subheader>
+            <h1 class="text-center" color="accent">All Products Of {{name}} Category</h1>
+            <div class="row mb1 mt1" *ngFor="let p of product ">
+                <div class="col-md-2 text-center mt2 ">
+                    <mat-icon mat-list-icon class="text-center mr2 mb2">
+                        <img class="img m" *ngIf="p.image" src="{{p.image}}" alt="">
+                        <img class="img m" *ngIf="!p.image" src="../../../assets/cat.png" alt="">
+                    </mat-icon>
+                </div>
+                <div class="col-md-8 m ">
+                    <div class="ml2 mt2">
+                        <h2> <span>Name : </span> {{ p.name }}</h2>
+                        <p> Description : <span [innerHTML]="p.description "></span></p>
+                        <p> Specification : <span [innerHTML]="p.specification "></span></p>
+                        <p> Delivery : <span [innerHTML]="p.delivery"></span></p>
+                        <p> Service : <span [innerHTML]="p.sewa"></span></p>
+                        <h5> <span>Rating : </span> {{ p.rating }}</h5>
+                        <div class="container">
+                            <a mat-raised-button class="btn">Price Rs: <span>{{p.price}}</span> Per
+                                <span>{{p.weight}}</span> <span>{{p.unit}}</span> </a>
+                            <a mat-raised-button class="btn">Discount Rs: <span>{{p.discount}}</span> </a>
+                            <a mat-raised-button class="btn">Stock: <span>{{p.stock}}</span> <span>{{p.unit}}</span>
+                            </a>
+                            <a mat-raised-button *ngIf="p.color" class="btn">Color: <span>{{p.color}}</span> </a>
+                            <a mat-raised-button *ngIf="p.brand" class="btn">Brand: <span>{{p.brand}}</span> </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2 text-center m">
+                    <button mat-raised-button color="primary" class="btn m mr2"
+                        [routerLink]="'/admin/updateProduct/'+p.id">Update</button>
+                    <button mat-raised-button color="accent" (click)="delete(p.id)" class="btn m">Delete</button>
+                </div>
+                <mat-divider></mat-divider>
+            </div>
+
+
+        </mat-list>
+        <div class="container text-center mt2">
+            <button mat-raised-button color="accent" type="reset" class="btn"
+                [routerLink]="'/admin/addProduct/'+id+'/'+name">Add new
+                product</button>
+        </div>
+
+
+    </mat-card>
+</div>

@@ -1,0 +1,35 @@
+<div class="bootstrap-wrapper">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <h2>Your order list</h2>
+                <mat-card *ngFor="let o of preOrders" class="mt1 mb1">
+                    <div class="row text-center">
+                        <div class="col-md-2">
+                            <img src="{{o.productImage}}" alt="image" class="pImage ">
+                        </div>
+                        <div class="col-md-3">
+                            <p>{{o.productName}}</p>
+                            <p>Status:{{o.status}}</p>
+                        </div>
+                        <div class="col-md-2">
+                            <p>Rs:{{o.price}}</p>
+                        </div>
+                        <div class="col-md-1">
+                            Qty:{{o.quantities}}
+                        </div>
+                        <div class="col-md-4">
+
+                            <button mat-raised-button color="accent" class="btn mr1"
+                                (click)="deleteOrder(o.id)">delete</button>
+                            <button mat-raised-button color="accent" [routerLink]="'/proceedPayment/'+o.id"
+                                class="btn">Pay now</button>
+                        </div>
+                    </div>
+                </mat-card>
+            </div>
+
+        </div>
+    </div>
+
+</div>

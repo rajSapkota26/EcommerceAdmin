@@ -1,0 +1,24 @@
+<mat-card>
+    <mat-action-list>
+        <div mat-subheader class="text-center">Menu </div>
+        <button routerLink="/user/allProduct/0" mat-list-item>
+            <mat-icon mat-list-icon>home</mat-icon>Home
+        </button>
+
+        <button mat-list-item routerLink="/user/allProduct/0">
+            <mat-icon mat-list-icon>category</mat-icon>All Products
+        </button>
+        <button mat-list-item routerLink="/user/mycart">
+            <mat-icon mat-list-icon>category</mat-icon>My Cart
+        </button>
+        <button mat-list-item routerLink="/user/myorder">
+            <mat-icon mat-list-icon>category</mat-icon>My Orders
+        </button>
+        <button mat-list-item routerLink="/user/viewCategory" *ngFor="let c of category"
+            [routerLink]="'/user/allProduct/'+c.id">
+            <mat-icon mat-list-icon>list</mat-icon>{{c.name}}
+        </button>
+
+    </mat-action-list>
+
+</mat-card>

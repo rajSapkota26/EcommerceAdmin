@@ -1,0 +1,11 @@
+.pImage{
+    height: 180px;
+    width: 180px;
+    margin: auto auto;
+}
+.txt{
+    color:red;
+}
+.fixedH{
+    height: 450px;
+}

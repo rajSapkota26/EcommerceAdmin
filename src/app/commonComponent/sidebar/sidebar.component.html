@@ -1,0 +1,28 @@
+<mat-card>
+    <mat-action-list>
+        <div mat-subheader class="text-center">Menu </div>
+        <button routerLink="admin" mat-list-item>
+            <mat-icon mat-list-icon>home</mat-icon>Home
+        </button>
+        <button mat-list-item routerLink="/admin/viewCategory">
+            <mat-icon mat-list-icon>list</mat-icon>Categories
+        </button>
+        <button mat-list-item routerLink="/admin/addCategory">
+            <mat-icon mat-list-icon>add_circle_outline</mat-icon>Add Categories
+        </button>
+
+        <button mat-list-item routerLink="">
+            <mat-icon mat-list-icon>list</mat-icon>Cart List
+        </button>
+        <button mat-list-item routerLink="">
+            <mat-icon mat-list-icon>list</mat-icon>whishList
+        </button>
+        <button mat-list-item routerLink="/admin/viewOrders">
+            <mat-icon mat-list-icon>list</mat-icon>Orders
+        </button>
+        <button mat-list-item routerLink="">
+            <mat-icon mat-list-icon>list</mat-icon>Users
+        </button>
+    </mat-action-list>
+
+</mat-card>

@@ -1,0 +1,15 @@
+.full-width{
+    width: 100%;
+}
+.pImage{
+    width: 75px;
+    height: 75px;
+}
+.ic{
+    width: 10px;
+    font-size: 15px !important; 
+    color: blue !important;
+}
+.tot{
+    color:red;
+}

@@ -1,0 +1,34 @@
+<div class="bootstrap-wrapper">
+    <div class="container-fluid">
+
+        <div class="row">
+            <div class="col-md-3 mt1 " *ngFor="let c of mycart">
+                <mat-card class="fixedH">
+                    <img src="{{c.productImage}}" alt="" class="pImage ">
+                    <div class="mb1">
+                        <p> <span>{{c.productName}}</span></p>
+                        <p class="txt"> <span>Rs:{{c.productPrice}}</span></p>
+                        <p class="txt"> <span>-Rs:{{c.productDiscount}}</span></p>
+                        <p class="txt"> <span>Quantity: {{c.quantities}}</span></p>
+                        <p class="txt"> <span>Totalprice:
+                                {{(c.quantities*c.productPrice)-(c.quantities*c.productDiscount)}}</span></p>
+                        <mat-divider></mat-divider><br>
+                        <mat-card-action class="mt2">
+                            <button mat-raised-button color="primary" (click)="removeCart(c.id)"
+                                class="btn mr2">Remove</button>
+                            <button mat-raised-button color="accent" class="btn "
+                                [routerLink]="'/creatingOrder/'+c.productId+'/'+c.id">Buy
+                                now</button>
+                        </mat-card-action>
+                    </div>
+
+
+                </mat-card>
+            </div>
+        </div>
+
+
+
+    </div>
+
+</div>
